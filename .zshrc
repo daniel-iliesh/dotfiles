@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -111,7 +111,12 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ROS2 Setups
-source /opt/ros/humble/setup.zsh
+ROS2_SETUP=/opt/ros/humble/setup.zsh
+
+if [[ -d "$ROS2_SETUP" ]]; then
+    source $ROS2_SETUP
+fi
+
 set -o vi
 
 # Idk yet

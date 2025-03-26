@@ -10,6 +10,7 @@ ln -sfn ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
 
 # Scripts
 ln -sfn ~/.dotfiles/scripts/zpm ~/.local/bin/zpm
+ln -sfn ~/.dotfiles/scripts/tmux-sessionizer ~/.local/bin/tmux-sessionizer
 
 # Fonts
 ln -sfn ~/.dotfiles/fonts/FiraCodeNerdFont ~/.fonts/FiraCodeNerdFont

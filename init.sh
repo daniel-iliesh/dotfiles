@@ -7,6 +7,7 @@ ln -sfn ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sfn ~/.dotfiles/.tmux.conf ~/.tmux.conf 
 ln -sfn ~/.dotfiles/.oh-my-zsh ~/.oh-my-zsh 
 ln -sfn ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
+ln -sfn ~/.dotfiles/i3/config ~/.config/i3/config
 
 # Scripts
 ln -sfn ~/.dotfiles/scripts/zpm ~/.local/bin/zpm

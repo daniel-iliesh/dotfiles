@@ -77,3 +77,37 @@ end)
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+local term_win = nil
+local term_buf = nil
+
+vim.keymap.set('n', '<C-`>', function()
+  if term_win and vim.api.nvim_win_is_valid(term_win) then
+    -- Hide the terminal window (preserve buffer and process)
+    vim.api.nvim_win_close(term_win, true)
+    term_win = nil
+  else
+    local height = math.floor(vim.o.lines / 3)
+
+    if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
+      -- Reopen existing terminal buffer
+      vim.cmd('botright split')
+      term_win = vim.api.nvim_get_current_win()
+      vim.api.nvim_win_set_buf(term_win, term_buf)
+    else
+      -- Create a new terminal buffer
+      vim.cmd('botright split')
+      term_win = vim.api.nvim_get_current_win()
+      term_buf = vim.api.nvim_create_buf(false, true)
+      vim.api.nvim_win_set_buf(term_win, term_buf)
+      vim.fn.termopen(os.getenv("SHELL"))
+    end
+
+    -- Resize to 1/3 of the screen
+    vim.api.nvim_win_set_height(term_win, height)
+
+    -- Enter insert mode
+    -- vim.cmd('startinsert')
+  end
+end, { noremap = true, silent = true })
+

@@ -7,13 +7,13 @@ return {
             require("copilot").setup({
                 suggestion = {
                     enabled = true,
-                    auto_trigger = false,
+                    auto_trigger = true,
                     hide_during_completion = false,
                     debounce = 25,
                     keymap = {
-                        accept = false,
+                        accept = "<C-J>",    -- Use Ctrl+J to accept suggestions
                         accept_word = false,
-                        accept_line = "<Tab>",
+                        accept_line = false, -- Remove Tab mapping
                         next = false,
                         prev = false,
                         dismiss = false,
@@ -23,3 +23,4 @@ return {
         end,
     },
 }
+
